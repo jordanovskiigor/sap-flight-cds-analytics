@@ -1,30 +1,33 @@
 # SAP Flight CDS Analytics
 Modern ABAP CDS View Entity implementing flight analytics directly at database level in SAP S/4HANA.
 
-This project demonstrates how business logic can be pushed down to the database using Core Data Services (CDS).
+This project demonstrates how business logic can be pushed down to the database using Core Data Services (CDS)  and consumed in a classical ABAP report application.
 
-## Overview of the project:
+## Project Overview 
 
-- Modeling data with CDS View Entities
+### Data Layer – CDS View Entity 
+- Built on SFLIGHT 
+- Uses associations to SCARR and SPFLI 
+- Calculates: 
+  - Occupation (%) 
+  - Popularity (A/B) 
+  - Scope (Domestic / International) 
+- Filters flights to EUR only 
 
-- Using associations instead of joins
+![CDS Preview](screenshots/cds-data-preview.png) 
 
-- Implementing calculated KPIs at database level
+### Application Layer – Search Report 
 
-- Applying CASE logic for classification
+- Classical ABAP report with selection screen 
+- Filters using SELECT-OPTIONS 
+- Retrieves data via ABAP SQL from CDS view 
+- Displays: 
+  - Flight details 
+  - Calculated KPIs 
+  - Color highlighting (A = green, B = red) 
+- Handles incomplete input 
+- Includes clear input button 
 
-- Using semantic annotations for currency fields
+![CDS Preview](screenshots/flight-search.png) 
 
-- Filtering data directly in the CDS layer
-
-The screenshot below shows the calculated analytical fields generated at database level.
-
-### Highlighted columns:
-
-- Occupation
-
-- Popularity
-
-- Scope
-
-![CDS Data Preview](screenshots/screenshot.png)
+![CDS Preview](screenshots/application-output.png) 

@@ -63,3 +63,12 @@ This comparison is done using the associated connection fields.
 
 Since the business scenario assumes flights are offered only in EUR, the CDS view includes a filter that only relevant records are exposed.
 
+## 7. Application Layer 
+
+The CDS view is consumed by a classical ABAP report. 
+
+The report: 
+- Provides a structured selection screen 
+- Uses ABAP SQL with the IN operator 
+- Displays formatted list output 
+- Highlights business-relevant flights using color formatting
